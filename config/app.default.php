@@ -69,6 +69,17 @@ return [
      */
     'Security' => [
         'salt' => env('SECURITY_SALT', '__SALT__'),
+        //add key
+        'id_numberKey' =>'yourkey',
+        'ldap' => [
+            'host' => 'ldap://your.host.here',
+            'port' => '389',
+            'username' => 'cn=name,ou=unit,DC=your,DC=host,DC=here',
+            'password' => 'strongpassword',
+            'baseDN' => 'ou=accounts,DC=your,DC=host,DC=here',
+            'userfilter' => 'memberof:1.2.840.113556.1.4.1941:=CN=NormalUser,OU=Groups,DC=your,DC=host,DC=here',
+            'adminfilter' => 'memberof:1.2.840.113556.1.4.1941:=CN=AdminUser,OU=Groups,DC=your,DC=host,DC=here',                             
+        ]
     ],
 
     /**
