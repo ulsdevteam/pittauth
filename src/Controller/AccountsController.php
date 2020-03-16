@@ -7,6 +7,7 @@ use Cake\I18n\Time;
 use Cake\Database\Expression\QueryExpression;
 use Cake\ORM\Query;
 use App\Utility\Clear;
+use Cake\Core\Configure;
 /**
  * Accounts Controller
  *
@@ -68,6 +69,10 @@ class AccountsController extends AppController
      */
     public function add()
     {
+      if (Configure::read('Security.SuspendService')) {
+        $this->Flash->error(__('The PittAuth Service is currently disabled.'));
+        return $this->redirect(['action' => 'index']);
+      }
       $this->loadModel('Logs');
         $subquery = $this->Logs->find()
           ->select(['username'])

@@ -71,6 +71,7 @@ return [
         'salt' => env('SECURITY_SALT', '__SALT__'),
         //add key
         'id_numberKey' =>'yourkey',
+        'SuspendService' => false,
         'ldap' => [
             'host' => 'ldap://your.host.here',
             'port' => '389',
